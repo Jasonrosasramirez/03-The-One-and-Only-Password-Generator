@@ -24,7 +24,7 @@ generateBtn.addEventListener("click", writePassword);
 
 // Test test text here for github repo. Let's see if this works now :) 
 
-
+// Am I a comment in git hub now? 
 
 
 
