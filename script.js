@@ -13,18 +13,35 @@ function writePassword() {
 }
 
 function generatePassword() {
-  console.log("hey, I worked");
+  window.alert("Hello friend. We will begin the password generation process");
+  window.prompt("Select a character length between 8 and 128 inclusive");
+  window.prompt("Select your character types to include in password"); // THEN I choose lowercase, uppercase, numeric, and/or special characters
+  
+  // the password generation array will most likely be here or triggers the new function
+  
+  //window.alert(password array);
 
 }
+
+/*
+WHEN prompted for character types to include in the password
+
+
+WHEN the password is generated
+THEN the password is either displayed in an alert or written to the page
+
+*/
+
+
+
+
 
 // Add event listener to generate button
 
 // element.addEventListener(event, function, useCapture);
 generateBtn.addEventListener("click", writePassword); 
 
-// Test test text here for github repo. Let's see if this works now :) 
 
-// Am I a comment in git hub now? 
 
 
 
