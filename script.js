@@ -13,7 +13,7 @@ function writePassword() {
 function generatePassword() {
   window.alert("Hello friend. We will begin the password generation process");
   
-  //var charLength = window.prompt("Select a character length between 8 and 128 inclusive");
+// prompt input section. Might make this into a seperate function. 
 
   var charLengthBool = false; // Checks to see if the character length criteria has been met.  
   while (charLengthBool == false) { 
@@ -42,6 +42,9 @@ function generatePassword() {
     window.alert("This is where we cancel " + readyToGen);
   }
   
+// password generation section. Might make this into a seperate function. 
+
+  
 }
 
 
@@ -61,7 +64,7 @@ generateBtn.addEventListener("click", writePassword);
 . Using the chrome inspector, sources states funtion generatePassword() is undefined. 
 25Feb2021
 . Finally learned to push code to Github on my own.
-.
+. 
 .
 .
 
