@@ -65,9 +65,12 @@ function generatePassword() {
   var passwordArray = [];
   // upperCase for character selection in demo
   
+  var randomArraySelectionInt = Math.floor(Math.random() * charLength) + 1;
+  console.log("The array selector is .." + randomArraySelectionInt);
+
 
   for (i = 0; i < charLength; i++) {
-    passwordArray.push(upperCase[2]);
+    passwordArray.push(upperCase[randomArraySelectionInt]);
     console.log("I looped " + i);
     console.log("this is the value of passwordArray right now " + passwordArray);
   }
@@ -79,7 +82,6 @@ function generatePassword() {
 function writePassword() {
   generatePassword();
 
-  // var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 } // Write password to the #password input. This is the passover function
