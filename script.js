@@ -11,7 +11,7 @@ var charLength;
 var specialCharSelection;
 var numericCharSelection;
 var lowerCaseSelection;
-var upperCaseSelection
+var upperCaseSelection;
 
 
 // Essential Functions 
@@ -48,34 +48,51 @@ function generatePassword() {
     alert("This is where we cancel " + readyToGen);
   }    
 
-  var passwordProperties = { // Object to store key value pairs of user input 
-    charLength: charLength,
-    specialCharSelection: specialCharSelection,
-    numericCharSelection: numericCharSelection,
-    lowerCaseSelection: lowerCaseSelection,
-    upperCaseSelection: upperCaseSelection
-  }
 
-  // console.log("This is passwordProperties" + string(passwordProperties));
-  
-  console.log("passwordRandomChar function Activated. char length " + charLength);
-
+  // This part below builds the password using the criteria above. 
 
 
   var passwordArray = [];
   // upperCase for character selection in demo
   
-  var randomArraySelectionInt = Math.floor(Math.random() * charLength) + 1;
-  console.log("The array selector is .." + randomArraySelectionInt);
-
-
+  
   for (i = 0; i < charLength; i++) {
+   
+   if (specialCharSelection == true) { 
+    var randomArraySelectionInt = Math.floor(Math.random() * charLength) + 1;
+    console.log("The array selector is .." + randomArraySelectionInt);
+   
+    passwordArray.push(specialChar[randomArraySelectionInt]);
+   }
+   
+   if (numericCharSelection == true) { 
+    var randomArraySelectionInt = Math.floor(Math.random() * charLength) + 1;
+    console.log("The array selector is .." + randomArraySelectionInt);
+   
+    passwordArray.push(numericChar[randomArraySelectionInt]);
+   }
+
+   if (lowerCaseSelection == true) { 
+    var randomArraySelectionInt = Math.floor(Math.random() * charLength) + 1;
+    console.log("The array selector is .." + randomArraySelectionInt);
+   
+    passwordArray.push(lowerCase[randomArraySelectionInt]);
+   }
+  
+   if (upperCaseSelection == true) { 
+    var randomArraySelectionInt = Math.floor(Math.random() * charLength) + 1;
+    console.log("The array selector is .." + randomArraySelectionInt);
+   
     passwordArray.push(upperCase[randomArraySelectionInt]);
+   }
+
     console.log("I looped " + i);
     console.log("this is the value of passwordArray right now " + passwordArray);
+   
+   
   }
-  
-  
+
+  alert(passwordArray.toString() + "this type is now a " + typeof(passwordArray.toString()));
 }
 
 

@@ -101,7 +101,7 @@ You are required to submit the following for review:
 
 
 
-Leaving this here incase something goes wrong 
+Leaving this here incase something goes wrong. This is basically my junk/maybe useful in the futue pile for now. 
 
 //Creating array or random element
 function passwordRandomCharacters (Array) {
@@ -126,3 +126,15 @@ var passwordString = "";
 
   console.log("this is the password string generated " + passwordString);
   
+
+    var passwordProperties = { // Object to store key value pairs of user input 
+    charLength: charLength,
+    specialCharSelection: specialCharSelection,
+    numericCharSelection: numericCharSelection,
+    lowerCaseSelection: lowerCaseSelection,
+    upperCaseSelection: upperCaseSelection
+  }
+
+  // console.log("This is passwordProperties" + string(passwordProperties));
+  
+  console.log("passwordRandomChar function Activated. char length " + charLength);
