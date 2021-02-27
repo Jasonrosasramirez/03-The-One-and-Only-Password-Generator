@@ -58,25 +58,23 @@ function generatePassword() {
 
   console.log("This is passwordProperties" + passwordProperties);
   
-  return passwordProperties;
-}
-
-//Creating array or random element
-function passwordRandomCharacters (Array) {
   console.log("passwordRandomChar function Activated. char length " + charLength);
 
-  var indexofArray = Math.floor(Math.random() * Array.length);
-  var grabElement = Array[indexofArray];
+  var passwordString = "";
+  var characterList = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var characterLength = characterList.charLength;
 
-  console.log(grabElement);
+  for (var i = 0; i < charLength; i++) {
+    passwordString += characterList.charAt(Math.floor(Math.random() * characterLength));
+  } 
 
-  return grabElement;
+  console.log("this is the password string generated " + passwordString);
+  
 }
 
 
 function writePassword() {
   generatePassword();
-  passwordRandomCharacters(); 
 
   // var password = generatePassword();
   var passwordText = document.querySelector("#password");

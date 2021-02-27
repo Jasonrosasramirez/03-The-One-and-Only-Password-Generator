@@ -98,3 +98,19 @@ You are required to submit the following for review:
 
 - - -
 © 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+
+
+
+Leaving this here incase something goes wrong 
+
+//Creating array or random element
+function passwordRandomCharacters (Array) {
+  console.log("passwordRandomChar function Activated. char length " + charLength);
+
+  var indexofArray = Math.floor(Math.random() * Array.length);
+  var grabElement = Array[indexofArray];
+
+  console.log(grabElement);
+
+  return grabElement;
+}
