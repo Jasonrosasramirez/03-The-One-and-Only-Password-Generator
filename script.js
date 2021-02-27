@@ -92,7 +92,7 @@ function generatePassword() {
    
   }
 
-  alert(passwordArray.toString() + "this type is now a " + typeof(passwordArray.toString()));
+  alert(passwordArray.join("") + "this type is now a " + "\n" + typeof(passwordArray.join("")));
 }
 
 
