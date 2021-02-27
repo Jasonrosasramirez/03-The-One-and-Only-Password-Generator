@@ -114,3 +114,15 @@ function passwordRandomCharacters (Array) {
 
   return grabElement;
 }
+
+
+var passwordString = "";
+  var characterList = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var characterLength = characterList.charLength;
+
+  for (var i = 0; i < charLength; i++) {
+    passwordString += characterList.charAt(Math.floor(Math.random() * characterLength));
+  } 
+
+  console.log("this is the password string generated " + passwordString);
+  

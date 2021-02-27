@@ -56,19 +56,22 @@ function generatePassword() {
     upperCaseSelection: upperCaseSelection
   }
 
-  console.log("This is passwordProperties" + passwordProperties);
+  // console.log("This is passwordProperties" + string(passwordProperties));
   
   console.log("passwordRandomChar function Activated. char length " + charLength);
 
-  var passwordString = "";
-  var characterList = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  var characterLength = characterList.charLength;
 
-  for (var i = 0; i < charLength; i++) {
-    passwordString += characterList.charAt(Math.floor(Math.random() * characterLength));
-  } 
 
-  console.log("this is the password string generated " + passwordString);
+  var passwordArray = [];
+  // upperCase for character selection in demo
+  
+
+  for (i = 0; i < charLength; i++) {
+    passwordArray.push(upperCase[2]);
+    console.log("I looped " + i);
+    console.log("this is the value of passwordArray right now " + passwordArray);
+  }
+  
   
 }
 
