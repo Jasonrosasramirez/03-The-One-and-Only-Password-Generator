@@ -7,11 +7,6 @@ var upperCase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P'
 
 var generateBtn = document.querySelector("#generate"); // This is the element in generateBtn
 
-var charLength;
-var specialCharSelection;
-var numericCharSelection;
-var lowerCaseSelection;
-var upperCaseSelection;
 
 
 // Essential Functions 
@@ -22,16 +17,16 @@ function generatePassword() {
 
   var charLengthBool = false; // Checks to see if the character length criteria has been met.  
   while (charLengthBool === false) {
-    charLength = parseInt(prompt("Select a character length between 8 and 128 inclusive")); // how can the input be kept as an int if a number is input. 
+    var charLength = Math.floor(parseInt(prompt("Select a character length between 8 and 128 inclusive"))); // how can the input be kept as an int if a number is input. 
 
     if (charLength >= 8 && charLength <= 128) {
       charLengthBool = true;
       
-      specialCharSelection = confirm("Would you like special characters to be used?\nOK for 'yes' and cancel for 'no'");
-      numericCharSelection = confirm("Would you like numeric characters to be used?\nOK for 'yes' and cancel for 'no'");
+      var specialCharSelection = confirm("Would you like special characters to be used?\nOK for 'yes' and cancel for 'no'");
+      var numericCharSelection = confirm("Would you like numeric characters to be used?\nOK for 'yes' and cancel for 'no'");
       // If both upper and lower are selected as false, then alphabet characters cannot be used. 
-      lowerCaseSelection = confirm("Would you like lowercase characters to be used?\nOK for 'yes' and cancel for 'no'");
-      upperCaseSelection = confirm("Would you like uppercase characters to be used?\nOK for 'yes' and cancel for 'no'");
+      var lowerCaseSelection = confirm("Would you like lowercase characters to be used?\nOK for 'yes' and cancel for 'no'");
+      var upperCaseSelection = confirm("Would you like uppercase characters to be used?\nOK for 'yes' and cancel for 'no'");
 
     } else {
       alert("Woah there, partner. You need to enter a number between 8 and 128. charLength " + typeof (charLength));
@@ -40,59 +35,65 @@ function generatePassword() {
 
 
   // this triggers if the password gets generated
-  var readyToGen = confirm("Build password with this criteria? " + "\nOK for 'yes' and cancel for 'no " + "\n " + "\nChar Length: " + charLength + "\nSpecial: " + specialCharSelection + "\nNumeric: " + numericCharSelection + "\nLowercase: " + lowerCaseSelection + "\nUppercase: " + upperCaseSelection);
-  if (readyToGen === true) {
-    alert("This is where the password is generated " + readyToGen);
-    // This is where the signal to create the password is created. 
+  var genPasswordDecision = confirm("Build password with this criteria? " + "\nOK for 'yes' and cancel for 'no " + "\n " + "\nChar Length: " + charLength + "\nSpecial: " + specialCharSelection + "\nNumeric: " + numericCharSelection + "\nLowercase: " + lowerCaseSelection + "\nUppercase: " + upperCaseSelection);
+
+  if (genPasswordDecision === true) {
+
+    var passwordArray = [];
+    for (i = 0; i < charLength; i+=0) {
+      
+     
+
+     if (specialCharSelection == true) { 
+      var randomArraySelectionInt = Math.floor(Math.random() * charLength) + 1;
+      console.log("The array selector is .." + randomArraySelectionInt);
+     
+      i++;
+      passwordArray.push(specialChar[randomArraySelectionInt]);
+     }
+     
+     if (numericCharSelection == true) { 
+      var randomArraySelectionInt = Math.floor(Math.random() * charLength) + 1;
+      console.log("The array selector is .." + randomArraySelectionInt);
+     
+      i++;
+      passwordArray.push(numericChar[randomArraySelectionInt]);
+     }
+  
+     if (lowerCaseSelection == true) { 
+      var randomArraySelectionInt = Math.floor(Math.random() * charLength) + 1;
+      console.log("The array selector is .." + randomArraySelectionInt);
+     
+      i++;
+      passwordArray.push(lowerCase[randomArraySelectionInt]);
+     }
+    
+     if (upperCaseSelection == true) { 
+      var randomArraySelectionInt = Math.floor(Math.random() * charLength) + 1;
+      console.log("The array selector is .." + randomArraySelectionInt);
+     
+      i++;
+      passwordArray.push(upperCase[randomArraySelectionInt]);
+     }
+  
+      console.log("I looped " + i);
+      console.log("this is the value of passwordArray right now " + passwordArray);
+     
+    }
+  
+    alert("Below is your new password\n" + passwordArray.join("")); // This is where the new password is displayed on screen
+    
+
   } else {
     alert("This is where we cancel " + readyToGen);
+
   }    
 
 
   // This part below builds the password using the criteria above. 
 
 
-  var passwordArray = [];
-  // upperCase for character selection in demo
-  
-  
-  for (i = 0; i < charLength; i++) {
-   
-   if (specialCharSelection == true) { 
-    var randomArraySelectionInt = Math.floor(Math.random() * charLength) + 1;
-    console.log("The array selector is .." + randomArraySelectionInt);
-   
-    passwordArray.push(specialChar[randomArraySelectionInt]);
-   }
-   
-   if (numericCharSelection == true) { 
-    var randomArraySelectionInt = Math.floor(Math.random() * charLength) + 1;
-    console.log("The array selector is .." + randomArraySelectionInt);
-   
-    passwordArray.push(numericChar[randomArraySelectionInt]);
-   }
 
-   if (lowerCaseSelection == true) { 
-    var randomArraySelectionInt = Math.floor(Math.random() * charLength) + 1;
-    console.log("The array selector is .." + randomArraySelectionInt);
-   
-    passwordArray.push(lowerCase[randomArraySelectionInt]);
-   }
-  
-   if (upperCaseSelection == true) { 
-    var randomArraySelectionInt = Math.floor(Math.random() * charLength) + 1;
-    console.log("The array selector is .." + randomArraySelectionInt);
-   
-    passwordArray.push(upperCase[randomArraySelectionInt]);
-   }
-
-    console.log("I looped " + i);
-    console.log("this is the value of passwordArray right now " + passwordArray);
-   
-   
-  }
-
-  alert(passwordArray.join("") + "this type is now a " + "\n" + typeof(passwordArray.join("")));
 }
 
 
