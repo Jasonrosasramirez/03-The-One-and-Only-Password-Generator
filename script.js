@@ -13,20 +13,19 @@ var generateBtn = document.querySelector("#generate"); // This is the element in
 
 
 function generatePassword() {
-  alert("Hello friend. We will begin the password generation process");
+  alert("Hello friend. We will begin the password generation process\n\nYou will be asked the following criteria:\n\nPassword Length\nUse of special characters\nUse of numeric characters\nUse of lowercase characters\nUse of uppercase characters ");
 
   var charLengthBool = false;  
   while (charLengthBool === false) {
-    var charLength = Math.floor(parseInt(prompt("Select a character length between 8 and 128 inclusive"))); // how can the input be kept as an int if a number is input. 
+    var charLength = Math.floor(parseInt(prompt("Select a password length between 8 and 128 inclusive"))); // how can the input be kept as an int if a number is input. 
 
     if (charLength >= 8 && charLength <= 128) {
       charLengthBool = true;
       
-      var specialCharSelection = confirm("Would you like special characters to be used?\nOK for 'yes' and cancel for 'no'");
-      var numericCharSelection = confirm("Would you like numeric characters to be used?\nOK for 'yes' and cancel for 'no'");
-      // If both upper and lower are selected as false, then alphabet characters cannot be used. 
-      var lowerCaseSelection = confirm("Would you like lowercase characters to be used?\nOK for 'yes' and cancel for 'no'");
-      var upperCaseSelection = confirm("Would you like uppercase characters to be used?\nOK for 'yes' and cancel for 'no'");
+      var specialCharSelection = confirm("Would you like special characters to be used?\n\nOK for 'yes' and cancel for 'no'");
+      var numericCharSelection = confirm("Would you like numeric characters to be used?\n\nOK for 'yes' and cancel for 'no'"); 
+      var lowerCaseSelection = confirm("Would you like lowercase characters to be used?\n\nOK for 'yes' and cancel for 'no'");
+      var upperCaseSelection = confirm("Would you like uppercase characters to be used?\n\nOK for 'yes' and cancel for 'no'");
 
     } else {
       alert("Woah there, partner. You need to enter a number between 8 and 128. charLength " + typeof (charLength));
@@ -44,8 +43,15 @@ function generatePassword() {
   }
   console.log("your safe to build is set as " + isItSafeToBuildPassword); 
  
- 
-  var genPasswordDecision = confirm("Build password with this criteria? " + "\nOK for 'yes' and cancel for 'no " + "\n " + "\nChar Length: " + charLength + "\nSpecial: " + specialCharSelection + "\nNumeric: " + numericCharSelection + "\nLowercase: " + lowerCaseSelection + "\nUppercase: " + upperCaseSelection);
+  
+  if (isItSafeToBuildPassword == true) {
+    var genPasswordDecision = confirm("Build password with this criteria? " + "\nOK for 'yes' and cancel for 'no " + "\n " + "\nPassword Length: " + charLength + "\nUse of special characters: " + specialCharSelection + "\nUse of numeric characters: " + numericCharSelection + "\nUse of lowercase characters: " + lowerCaseSelection + "\nUse of uppercase characters: " + upperCaseSelection);
+  } else {
+    alert("You must choose to have at least one character type. Criteria selection will begin again "); 
+    generatePassword();
+  }
+
+  
 
 
 
@@ -85,14 +91,16 @@ function generatePassword() {
      
     }
 
-    alert("Below is your new password\n" + passwordArray.join("")); // This is where the new password is displayed on screen
+    alert("Below is your new password\n\n" + passwordArray.join("")); // This is where the new password is displayed on screen
     
   } 
-  else if (genPasswordDecision === true && isItSafeToBuildPassword === false) {
-    alert("No password attributes were selected ");
-  } else {
-    alert("You have chosen to not generate a password. \nThank you"); 
-  }    
+  
+  if (genPasswordDecision === false) { 
+    alert("You have chosen to not generate a password. \nThank you");
+  }
+  
+     
+     
 
 
   
