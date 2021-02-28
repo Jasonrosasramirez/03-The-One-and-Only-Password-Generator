@@ -35,59 +35,56 @@ function generatePassword() {
 
 
   // This section uses the information from the portion above to build the password. 
-  var genPasswordDecision = confirm("Build password with this criteria? " + "\nOK for 'yes' and cancel for 'no " + "\n " + "\nChar Length: " + charLength + "\nSpecial: " + specialCharSelection + "\nNumeric: " + numericCharSelection + "\nLowercase: " + lowerCaseSelection + "\nUppercase: " + upperCaseSelection);
-
-  var isItSafeToBuildPassword;
+  
+  var isItSafeToBuildPassword; // Hello :) I make sure the characters above are not all set to false and cause your for loop to create without end. 
   if (specialCharSelection==false && numericCharSelection==false && upperCaseSelection==false && lowerCaseSelection==false) {
     isItSafeToBuildPassword = false; 
   } else {
     isItSafeToBuildPassword = true; 
   }
-  alert("your safe to build is set as " + isItSafeToBuildPassword); 
+  console.log("your safe to build is set as " + isItSafeToBuildPassword); 
+ 
+ 
+  var genPasswordDecision = confirm("Build password with this criteria? " + "\nOK for 'yes' and cancel for 'no " + "\n " + "\nChar Length: " + charLength + "\nSpecial: " + specialCharSelection + "\nNumeric: " + numericCharSelection + "\nLowercase: " + lowerCaseSelection + "\nUppercase: " + upperCaseSelection);
+
+
 
     // This section actually builds the password 
   if (genPasswordDecision === true && isItSafeToBuildPassword === true) {
 
     var passwordArray = [];
-    for (i = 0; i < charLength; i+=0) {
+    for (i = 0; i < charLength; i += 0) {
       
-  
      if (specialCharSelection == true) { 
-      var randomArraySelectionInt = Math.floor(Math.random() * charLength) + 1;
-      console.log("The array selector is .." + randomArraySelectionInt);
-     
-      i++;
-      passwordArray.push(specialChar[randomArraySelectionInt]);
+      var randomArraySelectionInt = Math.floor(Math.random() * charLength) + 1; //I generate a random number that will be used to select a random array element in the character array from way up there :) And because this is a for loop, I will be diferent everytime    
+      
+      i++; // I represent whenever an element is added to the password array. That way the for loop ends at 8 characters.
+      passwordArray.push(specialChar[randomArraySelectionInt]); // I add an element at the end of the existing passwork array using randomly accessed elements. 
      }
      
      if (numericCharSelection == true) { 
-      var randomArraySelectionInt = Math.floor(Math.random() * charLength) + 1;
-      console.log("The array selector is .." + randomArraySelectionInt);
-     
+      var randomArraySelectionInt = Math.floor(Math.random() * charLength) + 1;     
       i++;
       passwordArray.push(numericChar[randomArraySelectionInt]);
      }
   
      if (lowerCaseSelection == true) { 
       var randomArraySelectionInt = Math.floor(Math.random() * charLength) + 1;
-      console.log("The array selector is .." + randomArraySelectionInt);
-     
       i++;
       passwordArray.push(lowerCase[randomArraySelectionInt]);
      }
     
      if (upperCaseSelection == true) { 
       var randomArraySelectionInt = Math.floor(Math.random() * charLength) + 1;
-      console.log("The array selector is .." + randomArraySelectionInt);
-     
       i++;
       passwordArray.push(upperCase[randomArraySelectionInt]);
      }
   
-      console.log("I looped " + i);
+      console.log("I looped this many times. Just add one to the iteration " + i);
       console.log("this is the value of passwordArray right now " + passwordArray);
      
     }
+
     alert("Below is your new password\n" + passwordArray.join("")); // This is where the new password is displayed on screen
     
   } 
