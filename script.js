@@ -1,6 +1,6 @@
 
 // Character Arrays & Variables 
-var specialChar = ['@','%','+','\\','/',"'",'!','#','$','^','?',':',',',')','(','}','{',']','[','~','-','_','.'];
+var specialChar = ['@','%','+','\\','/',"'",'!','#','$','^','?',':',')','(','}','{',']','[','~','-','_','.']; // Reamoved ',' from this array. 
 var numericChar = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 var lowerCase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 var upperCase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
@@ -13,22 +13,22 @@ var generateBtn = document.querySelector("#generate"); // This is the element in
 
 
 function generatePassword() {
-  alert("Hello friend. We will begin the password generation process\n\nYou will be asked the following criteria:\n\nPassword Length\nUse of special characters\nUse of numeric characters\nUse of lowercase characters\nUse of uppercase characters ");
+  alert("(Opening)\nHello friend. We will begin the password generation process\n\nYou will be asked the following criteria:\n\nPassword Length\nUse of special characters\nUse of numeric characters\nUse of lowercase characters\nUse of uppercase characters ");
 
   var charLengthBool = false;  
   while (charLengthBool === false) {
-    var charLength = Math.floor(parseInt(prompt("Select a password length between 8 and 128 inclusive"))); // how can the input be kept as an int if a number is input. 
+    var charLength = Math.floor(parseInt(prompt("(Page 1)\nSelect a password length between 8 and 128 inclusive"))); // how can the input be kept as an int if a number is input. 
 
     if (charLength >= 8 && charLength <= 128) {
       charLengthBool = true;
       
-      var specialCharSelection = confirm("Would you like special characters to be used?\n\nOK for 'yes' and cancel for 'no'");
-      var numericCharSelection = confirm("Would you like numeric characters to be used?\n\nOK for 'yes' and cancel for 'no'"); 
-      var lowerCaseSelection = confirm("Would you like lowercase characters to be used?\n\nOK for 'yes' and cancel for 'no'");
-      var upperCaseSelection = confirm("Would you like uppercase characters to be used?\n\nOK for 'yes' and cancel for 'no'");
+      var specialCharSelection = confirm("(Page 2)\nWould you like special characters to be used?\n\nOK for 'yes' and cancel for 'no'");
+      var numericCharSelection = confirm("(Page 3)\nWould you like numeric characters to be used?\n\nOK for 'yes' and cancel for 'no'"); 
+      var lowerCaseSelection = confirm("(Page 4)\nWould you like lowercase characters to be used?\n\nOK for 'yes' and cancel for 'no'");
+      var upperCaseSelection = confirm("(Page 5)\nWould you like uppercase characters to be used?\n\nOK for 'yes' and cancel for 'no'");
 
     } else {
-      alert("Woah there, partner. You need to enter a number between 8 and 128. charLength " + typeof (charLength));
+      alert("(Password Length Error)\n\nWoah there, partner. You need to enter a number between 8 and 128.");
     }
   } // This section is the user promts asking for the password criteria. 
 
@@ -41,20 +41,17 @@ function generatePassword() {
   } else {
     isItSafeToBuildPassword = true; 
   }
-  console.log("your safe to build is set as " + isItSafeToBuildPassword); 
+  console.log("The safe to build variable is set as " + isItSafeToBuildPassword); 
  
   
   if (isItSafeToBuildPassword == true) {
-    var genPasswordDecision = confirm("Build password with this criteria? " + "\nOK for 'yes' and cancel for 'no " + "\n " + "\nPassword Length: " + charLength + "\nUse of special characters: " + specialCharSelection + "\nUse of numeric characters: " + numericCharSelection + "\nUse of lowercase characters: " + lowerCaseSelection + "\nUse of uppercase characters: " + upperCaseSelection);
+    var genPasswordDecision = confirm("(Page 6)\nBuild password with this criteria? " + "\nOK for 'yes' and cancel for 'no " + "\n " + "\nPassword Length: " + charLength + "\nUse of special characters: " + specialCharSelection + "\nUse of numeric characters: " + numericCharSelection + "\nUse of lowercase characters: " + lowerCaseSelection + "\nUse of uppercase characters: " + upperCaseSelection);
   } else {
-    alert("You must choose to have at least one character type. Criteria selection will begin again "); 
+    alert("(Character Type Error)\nYou must choose to have at least one character type. Criteria selection will start over "); 
     generatePassword();
   }
 
   
-
-
-
     // This section actually builds the password 
   if (genPasswordDecision === true && isItSafeToBuildPassword === true) {
 
@@ -85,25 +82,20 @@ function generatePassword() {
       i++;
       passwordArray.push(upperCase[randomArraySelectionInt]);
      }
-  
+
       console.log("I looped this many times. Just add one to the iteration " + i);
       console.log("this is the value of passwordArray right now " + passwordArray);
      
     }
 
-    alert("Below is your new password\n\n" + passwordArray.join("")); // This is where the new password is displayed on screen
+    alert("(Your New Password!)\nBelow is your new password\n\n" + passwordArray.join("")); // This is where the new password is displayed on screen
     
   } 
   
   if (genPasswordDecision === false) { 
-    alert("You have chosen to not generate a password. \nThank you");
+    alert("(Process Exit)\nYou have chosen to not generate a password. \nThank you");
   }
-  
-     
-     
-
-
-  
+    
 }
 
 
