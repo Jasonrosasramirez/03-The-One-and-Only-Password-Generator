@@ -15,7 +15,7 @@ var generateBtn = document.querySelector("#generate"); // This is the element in
 function generatePassword() {
   alert("Hello friend. We will begin the password generation process");
 
-  var charLengthBool = false; // Checks to see if the character length criteria has been met.  
+  var charLengthBool = false;  
   while (charLengthBool === false) {
     var charLength = Math.floor(parseInt(prompt("Select a character length between 8 and 128 inclusive"))); // how can the input be kept as an int if a number is input. 
 
@@ -31,19 +31,27 @@ function generatePassword() {
     } else {
       alert("Woah there, partner. You need to enter a number between 8 and 128. charLength " + typeof (charLength));
     }
-  } // This section is the user prompt
+  } // This section is the user promts asking for the password criteria. 
 
 
-  // this triggers if the password gets generated
+  // This section uses the information from the portion above to build the password. 
   var genPasswordDecision = confirm("Build password with this criteria? " + "\nOK for 'yes' and cancel for 'no " + "\n " + "\nChar Length: " + charLength + "\nSpecial: " + specialCharSelection + "\nNumeric: " + numericCharSelection + "\nLowercase: " + lowerCaseSelection + "\nUppercase: " + upperCaseSelection);
 
-  if (genPasswordDecision === true) {
+  var isItSafeToBuildPassword;
+  if (specialCharSelection==false && numericCharSelection==false && upperCaseSelection==false && lowerCaseSelection==false) {
+    isItSafeToBuildPassword = false; 
+  } else {
+    isItSafeToBuildPassword = true; 
+  }
+  alert("your safe to build is set as " + isItSafeToBuildPassword); 
+
+    // This section actually builds the password 
+  if (genPasswordDecision === true && isItSafeToBuildPassword === true) {
 
     var passwordArray = [];
     for (i = 0; i < charLength; i+=0) {
       
-     
-
+  
      if (specialCharSelection == true) { 
       var randomArraySelectionInt = Math.floor(Math.random() * charLength) + 1;
       console.log("The array selector is .." + randomArraySelectionInt);
@@ -80,20 +88,17 @@ function generatePassword() {
       console.log("this is the value of passwordArray right now " + passwordArray);
      
     }
-  
     alert("Below is your new password\n" + passwordArray.join("")); // This is where the new password is displayed on screen
     
-
+  } 
+  else if (genPasswordDecision === true && isItSafeToBuildPassword === false) {
+    alert("No password attributes were selected ");
   } else {
-    alert("This is where we cancel " + readyToGen);
-
+    alert("You have chosen to not generate a password. \nThank you"); 
   }    
 
 
-  // This part below builds the password using the criteria above. 
-
-
-
+  
 }
 
 
