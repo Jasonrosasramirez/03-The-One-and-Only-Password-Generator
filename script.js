@@ -59,26 +59,26 @@ function generatePassword() {
     for (i = 0; i < charLength; i += 0) {
       
      if (specialCharSelection == true) { 
-      var randomArraySelectionInt = Math.floor(Math.random() * charLength) + 1; //I generate a random number that will be used to select a random array element in the character array from way up there :) And because this is a for loop, I will be diferent everytime    
+      var randomArraySelectionInt = Math.floor(Math.random() * (specialChar.length-1)) + 1; //I generate a random number that will be used to select a random array element in the character array from way up there :) And because this is a for loop, I will be diferent everytime    
       
       i++; // I represent whenever an element is added to the password array. That way the for loop ends at 8 characters.
       passwordArray.push(specialChar[randomArraySelectionInt]); // I add an element at the end of the existing passwork array using randomly accessed elements. 
      }
      
      if (numericCharSelection == true) { 
-      var randomArraySelectionInt = Math.floor(Math.random() * charLength) + 1;     
+      var randomArraySelectionInt = Math.floor(Math.random() * (numericChar.length-1)) + 1;     
       i++;
       passwordArray.push(numericChar[randomArraySelectionInt]);
      }
   
      if (lowerCaseSelection == true) { 
-      var randomArraySelectionInt = Math.floor(Math.random() * charLength) + 1;
+      var randomArraySelectionInt = Math.floor(Math.random() * (lowerCase.length-1)) + 1;
       i++;
       passwordArray.push(lowerCase[randomArraySelectionInt]);
      }
     
      if (upperCaseSelection == true) { 
-      var randomArraySelectionInt = Math.floor(Math.random() * charLength) + 1;
+      var randomArraySelectionInt = Math.floor(Math.random() * (upperCase.length-1)) + 1;
       i++;
       passwordArray.push(upperCase[randomArraySelectionInt]);
      }
