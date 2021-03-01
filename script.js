@@ -32,7 +32,6 @@ function generatePassword() {
     }
   } // This section is the user promts asking for the password criteria. 
 
-
   // This section uses the information from the portion above to build the password. 
   
   var isItSafeToBuildPassword; // Hello :) I make sure the characters above are not all set to false and cause your for loop to create without end. 
@@ -51,7 +50,7 @@ function generatePassword() {
     generatePassword();
   }
 
-  
+
     // This section actually builds the password. So this is the bread and butter 
   if (genPasswordDecision === true && isItSafeToBuildPassword === true) {
 
@@ -60,28 +59,28 @@ function generatePassword() {
       
      if (specialCharSelection == true) { 
       var randomArraySelectionInt = Math.floor(Math.random() * (specialChar.length-1)) + 1; //I generate a random number that will be used to select a random array element in the character array from way up there :) And because this is a for loop, I will be diferent everytime    
-      
+      if (i === charLength) { break; }
       i++; // I represent whenever an element is added to the password array. That way the for loop ends at 8 characters.
       passwordArray.push(specialChar[randomArraySelectionInt]); // I add an element at the end of the existing passwork array using randomly accessed elements. 
      }
      
      if (numericCharSelection == true) { 
       var randomArraySelectionInt = Math.floor(Math.random() * (numericChar.length-1)) + 1;     
-      
+      if (i === charLength) { break; }
       i++;
       passwordArray.push(numericChar[randomArraySelectionInt]);  
       }
       
      if (lowerCaseSelection == true) { 
       var randomArraySelectionInt = Math.floor(Math.random() * (lowerCase.length-1)) + 1;
-      
+      if (i === charLength) { break; }
       i++;
       passwordArray.push(lowerCase[randomArraySelectionInt]);  
      }
     
      if (upperCaseSelection == true) { 
       var randomArraySelectionInt = Math.floor(Math.random() * (upperCase.length-1)) + 1;
-      
+      if (i === charLength) { break; }
       i++;
       passwordArray.push(upperCase[randomArraySelectionInt]);  
      }
@@ -92,16 +91,6 @@ function generatePassword() {
     } // I add elements to the password array :D But sometimes I add too many elements
 
     console.log("Your password array length is " + passwordArray.length + " and your desired length is " + charLength); 
-
-    if (passwordArray.length > charLength) {
-      arrayDifference = passwordArray.length - charLength;
-      console.log("The arrayDifference is " + arrayDifference + " So you need to remove that many");
-
-      for (i = 0; i != arrayDifference || i < arrayDifference; i++) {
-        passwordArray.pop();
-      }
-
-    }
 
     alert("(Your New Password!)\nBelow is your new password\n\n" + passwordArray.join("")); // This is where the new password is displayed on screen
     console.log("\n\nThe password array Length " + passwordArray.length + " the character length is " + charLength);
