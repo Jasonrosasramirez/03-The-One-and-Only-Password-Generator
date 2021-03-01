@@ -52,7 +52,7 @@ function generatePassword() {
   }
 
   
-    // This section actually builds the password 
+    // This section actually builds the password. So this is the bread and butter 
   if (genPasswordDecision === true && isItSafeToBuildPassword === true) {
 
     var passwordArray = [];
@@ -67,29 +67,44 @@ function generatePassword() {
      
      if (numericCharSelection == true) { 
       var randomArraySelectionInt = Math.floor(Math.random() * (numericChar.length-1)) + 1;     
+      
       i++;
-      passwordArray.push(numericChar[randomArraySelectionInt]);
-     }
-  
+      passwordArray.push(numericChar[randomArraySelectionInt]);  
+      }
+      
      if (lowerCaseSelection == true) { 
       var randomArraySelectionInt = Math.floor(Math.random() * (lowerCase.length-1)) + 1;
+      
       i++;
-      passwordArray.push(lowerCase[randomArraySelectionInt]);
+      passwordArray.push(lowerCase[randomArraySelectionInt]);  
      }
     
      if (upperCaseSelection == true) { 
       var randomArraySelectionInt = Math.floor(Math.random() * (upperCase.length-1)) + 1;
+      
       i++;
-      passwordArray.push(upperCase[randomArraySelectionInt]);
+      passwordArray.push(upperCase[randomArraySelectionInt]);  
      }
 
       console.log("I looped this many times. Just add one to the iteration " + i);
       console.log("this is the value of passwordArray right now " + passwordArray);
      
+    } // I add elements to the password array :D But sometimes I add too many elements
+
+    console.log("Your password array length is " + passwordArray.length + " and your desired length is " + charLength); 
+
+    if (passwordArray.length > charLength) {
+      arrayDifference = passwordArray.length - charLength;
+      console.log("The arrayDifference is " + arrayDifference + " So you need to remove that many");
+
+      for (i = 0; i != arrayDifference || i < arrayDifference; i++) {
+        passwordArray.pop();
+      }
+
     }
 
     alert("(Your New Password!)\nBelow is your new password\n\n" + passwordArray.join("")); // This is where the new password is displayed on screen
-    
+    console.log("\n\nThe password array Length " + passwordArray.length + " the character length is " + charLength);
   } 
   
   if (genPasswordDecision === false) { 
