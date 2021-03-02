@@ -100,8 +100,7 @@ function generatePassword() {
     alert("(Process Exit)\nYou have chosen to not generate a password. \nThank you");
   }
     
-}
-
+} // This function takes user inputs and creates the random password 
 
 function writePassword() {
   generatePassword();
